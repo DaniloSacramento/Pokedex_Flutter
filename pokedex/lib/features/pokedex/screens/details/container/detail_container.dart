@@ -1,38 +1,45 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
 import 'package:pokedex/common/error/failure.dart';
 import 'package:pokedex/common/models/pokemon.dart';
 import 'package:pokedex/common/repositorys/pokemon_repository.dart';
-import 'package:pokedex/features/pokedex/screens/details/container/detail_container.dart';
-import 'package:pokedex/features/pokedex/screens/pages/home_error.dart';
-import 'package:pokedex/features/pokedex/screens/pages/home_loading.dart';
-import 'package:pokedex/features/pokedex/screens/pages/home_page.dart';
+import 'package:pokedex/common/widgets/po_error.dart';
+import 'package:pokedex/common/widgets/po_loading.dart';
+import 'package:pokedex/features/pokedex/screens/details/pages/detail_page.dart';
 
-class HomeContainer extends StatelessWidget {
-  const HomeContainer({
+class DetailArguments {
+  final String name;
+  DetailArguments({
+    required this.name,
+  });
+}
+
+class DetailContainer extends StatelessWidget {
+  const DetailContainer({
     Key? key,
     required this.repository,
-    required this.onItemTap,
+    required this.arguments,
   }) : super(key: key);
   final IPokemonRepository repository;
-  final Function(String, DetailArguments) onItemTap;
+  final DetailArguments arguments;
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<Pokemon>>(
       future: repository.getAllPokemons(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const HomeLoading();
+          return const PoLoading();
         }
         if (snapshot.connectionState == ConnectionState.done && snapshot.hasData) {
-          return HomePage(
+          return DetailPage(
+            name: arguments.name,
             list: snapshot.data!,
-            onItemTap: onItemTap,
-            repository: repository,
           );
         }
         if (snapshot.hasError) {
-          return HomeError(error: (snapshot.error as Failure).message!);
+          return PoError(error: (snapshot.error as Failure).message!);
         }
         return const Text('Error desconhecido');
       },
