@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/common/repositorys/pokemon_repository.dart';
+import 'package:pokedex/features/home/container/home_container.dart';
 import 'package:pokedex/features/home/pages/home_page.dart';
 
 void main() {
@@ -15,7 +17,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Pokedex',
       theme: ThemeData(primarySwatch: Colors.red),
-      home: const HomePage(),
+      home: HomeContainer(
+        repository: PokemonRepository(),
+      ),
     );
   }
 }
