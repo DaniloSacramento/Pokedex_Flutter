@@ -43,6 +43,7 @@ dependencies:
   get_it: ^7.2.0
   simple_animations: ^5.0.0+3
   dio: ^4.0.6
+  auto_size_text: ^3.0.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -96,6 +97,18 @@ flutter:
         - asset: assets/fonts/ProductSans-Regular.ttf
         - asset: assets/fonts/ProductSans-Bold.ttf
           weight: 700
+    - family: Teko
+      fonts:
+        - asset: assets/fonts/Teko-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Teko-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Teko-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Teko-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Teko-Bold.ttf
+          weight: 700      
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
