@@ -1,12 +1,14 @@
 import 'package:dio/dio.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex/common/repositorys/pokemon_repository.dart';
 import 'package:pokedex/features/home/container/home_container.dart';
 import 'package:pokedex/features/pokedex/route.dart';
-import 'package:pokedex/features/pokedex/screens/login/pages/login_page.dart';
+import 'package:pokedex/features/pokedex/screens/login/pages/login/login_page.dart';
 
-void main() {
+void main() async {
   runApp(const MyApp());
+  await Firebase.initializeApp();
 }
 
 class MyApp extends StatelessWidget {
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Pokedex',
       theme: ThemeData(primarySwatch: Colors.red),
-      home: LoginPage(),
+      home: const LoginPage(),
       // PokedexRoute(
       // repository: PokemonRepository(dio: Dio()),
       //   ));

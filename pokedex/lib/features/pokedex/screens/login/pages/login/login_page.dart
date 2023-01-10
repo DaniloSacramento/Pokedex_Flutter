@@ -5,7 +5,7 @@ import 'package:pokedex/features/pokedex/screens/login/const/conts_app.dart';
 import 'package:pokedex/features/pokedex/screens/pages/home_page.dart';
 import 'package:validatorless/validatorless.dart';
 
-import 'registration_page.dart';
+import '../registration/registration_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -36,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               child: Opacity(
                 opacity: 0.6,
-                child: Image.asset(ConstsApp.blackPokeball),
+                child: Image.asset(ConstsApp.pokedex),
               ),
             ),
             Padding(
@@ -101,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                                 onPressed: () {
                                   Navigator.of(context).push(
                                     MaterialPageRoute(
-                                      builder: (context) => const CadastresePage(),
+                                      builder: (context) => CadastresePage(),
                                     ),
                                   );
                                 },

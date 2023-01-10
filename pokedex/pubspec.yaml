@@ -38,13 +38,16 @@ dependencies:
   flutter_staggered_animations: ^1.1.1
   sliding_sheet: ^0.5.2
   flutter_icons: ^1.1.0  
-  intl: ^0.18.0
+  intl: ^0.17.0
   http: ^0.13.5
   get_it: ^7.2.0
   simple_animations: ^5.0.0+3
   dio: ^4.0.6
   auto_size_text: ^3.0.0
   validatorless: ^1.2.3
+  firebase_core: ^2.4.1 
+  firebase_auth: ^4.2.5
+  firebase_auth_web: ^5.2.4
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -80,6 +83,7 @@ flutter:
   assets:
    - assets/images/pokeball.png
    - assets/images/pokeball_dark.png
+   - assets/images/Pokedex.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
